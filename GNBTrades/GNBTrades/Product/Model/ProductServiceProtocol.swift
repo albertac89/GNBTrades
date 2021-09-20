@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProductServiceProtocol {
-    
+    func getRates(completion: @escaping (Result<[Rate], Error>) -> Void)
 }

@@ -16,5 +16,9 @@ class ProductService {
 }
 
 extension ProductService: ProductServiceProtocol {
-    
+    func getRates(completion: @escaping (Result<[Rate], Error>) -> Void) {
+        apiClient.fetch(with: .get, path: "rates.json") { (result: Result<[Rate], Error>) in
+            completion(result)
+        }
+    }
 }

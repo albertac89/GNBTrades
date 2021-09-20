@@ -1,5 +1,5 @@
 //
-//  TransactionsViewController.swift
+//  ProductsListViewController.swift
 //  GNBTrades
 //
 //  Created by Aige Cortasa, Albert on 18/09/2021.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class TransactionsViewController: UIViewController {
+class ProductsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var presenter: TransactionsPresenterProtocol
-    private var data: [Transaction] = [] {
+    var presenter: ProductsListPresenterProtocol
+    private var data: [String] = [] {
         didSet {
             tableView.reloadData()
         }
     }
     
-    init(presenter: TransactionsPresenterProtocol) {
+    init(presenter: ProductsListPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,6 +29,7 @@ class TransactionsViewController: UIViewController {
         super.viewDidLoad()
         title = "GNB"
         setupTableView()
+        presenter.viewDidLoad()
     }
     
     private func setupTableView() {
@@ -36,16 +37,19 @@ class TransactionsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(UINib(nibName: ProductTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: ProductTableViewCell.identifier)
     }
 }
 
-extension TransactionsViewController: TransactionsViewControllerProtocol {
-    func setData(transactions: [Transaction]) {
-        self.data = transactions
+extension ProductsListViewController: ProductsListViewControllerProtocol {
+    func setData(products: [String]) {
+        DispatchQueue.main.async {
+            self.data = products
+        }
     }
 }
 
-extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProductsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -55,11 +59,15 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let productSku = data[indexPath.row]
+        let cell: ProductTableViewCell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.identifier, for: indexPath) as! ProductTableViewCell
+        cell.configure(sku: productSku)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let transactionsForProduct = presenter.getTransactionsForProductWith(sku: "")
+        let productSku = data[indexPath.row]
+        guard let transactionsForProduct = presenter.getTransactionsForProductWith(sku: productSku) else { return }
         let productView = ProductBuilder.build(transactions: transactionsForProduct)
         self.navigationController?.pushViewController(productView, animated: true)
     }

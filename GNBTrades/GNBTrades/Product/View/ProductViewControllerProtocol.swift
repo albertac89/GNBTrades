@@ -8,5 +8,9 @@
 import Foundation
 
 protocol ProductViewControllerProtocol: class {
-    
+    func configureNavBar(title: String)
+    func setData(data: [Transaction])
+    func configureSumWith(total: String, currency: String)
+    func startActivityIndicator()
+    func stopActivityIndicator()
 }

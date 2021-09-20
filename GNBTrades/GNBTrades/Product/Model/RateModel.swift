@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Rate {
+struct Rate: Codable {
     let from: String
     let to: String
     let rate: String

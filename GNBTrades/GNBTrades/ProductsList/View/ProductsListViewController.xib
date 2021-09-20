@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionsViewController" customModule="GNBTrades" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsListViewController" customModule="GNBTrades" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="5tB-go-9hO" id="xOn-3L-E9I"/>
+                <outlet property="tableView" destination="h9t-tu-Fwl" id="o7I-DV-TPe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5tB-go-9hO">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h9t-tu-Fwl">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -27,10 +27,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="5tB-go-9hO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="67Z-Tf-IQG"/>
-                <constraint firstItem="5tB-go-9hO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6wL-ft-u1Y"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5tB-go-9hO" secondAttribute="bottom" id="FOA-ao-38h"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5tB-go-9hO" secondAttribute="trailing" id="bPS-ec-rdy"/>
+                <constraint firstItem="h9t-tu-Fwl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0EK-Tq-2rh"/>
+                <constraint firstItem="h9t-tu-Fwl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="64f-75-sT1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="h9t-tu-Fwl" secondAttribute="trailing" id="GW5-i4-P3x"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="h9t-tu-Fwl" secondAttribute="bottom" id="Gox-At-xXd"/>
             </constraints>
             <point key="canvasLocation" x="141" y="125"/>
         </view>

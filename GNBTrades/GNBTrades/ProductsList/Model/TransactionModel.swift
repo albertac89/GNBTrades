@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction {
+struct Transaction: Codable {
     let sku: String
     let amount: String
     let currency: String
