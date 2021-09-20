@@ -40,6 +40,7 @@
 		609771B526F8FC2D00EF3611 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771B426F8FC2D00EF3611 /* UIViewController+extension.swift */; };
 		609771BE26F8FDF700EF3611 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771BC26F8FDF700EF3611 /* TransactionTableViewCell.swift */; };
 		609771BF26F8FDF700EF3611 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609771BD26F8FDF700EF3611 /* TransactionTableViewCell.xib */; };
+		609771C626F9220500EF3611 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771C526F9220500EF3611 /* String+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		609771B426F8FC2D00EF3611 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		609771BC26F8FDF700EF3611 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		609771BD26F8FDF700EF3611 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		609771C526F9220500EF3611 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +151,8 @@
 		609770B326F4F77E00EF3611 /* GNBTrades */ = {
 			isa = PBXGroup;
 			children = (
-				609771B326F8FBF900EF3611 /* LoaderScreen */,
+				609771C426F921E100EF3611 /* ActivityIndicator */,
+				609771C326F921CA00EF3611 /* Extensions */,
 				6097712126F5ED0D00EF3611 /* Product */,
 				609770FC26F5E91300EF3611 /* ProductsList */,
 				609770F626F5E77800EF3611 /* Network */,
@@ -274,13 +277,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		609771B326F8FBF900EF3611 /* LoaderScreen */ = {
+		609771C326F921CA00EF3611 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				609771B426F8FC2D00EF3611 /* UIViewController+extension.swift */,
+				609771C526F9220500EF3611 /* String+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		609771C426F921E100EF3611 /* ActivityIndicator */ = {
 			isa = PBXGroup;
 			children = (
 				609771AE26F8FBC000EF3611 /* ActivityIndicatorScreen.swift */,
-				609771B426F8FC2D00EF3611 /* UIViewController+extension.swift */,
 			);
-			path = LoaderScreen;
+			path = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +439,7 @@
 				6097718426F7941100EF3611 /* ProductTableViewCell.swift in Sources */,
 				6097716926F5EF9700EF3611 /* ProductViewControllerProtocol.swift in Sources */,
 				6097716426F5EF4B00EF3611 /* ProductService.swift in Sources */,
+				609771C626F9220500EF3611 /* String+extension.swift in Sources */,
 				609770F226F5E5B000EF3611 /* NavigationController.swift in Sources */,
 				609771AF26F8FBC000EF3611 /* ActivityIndicatorScreen.swift in Sources */,
 				6097715426F5EF2000EF3611 /* ProductPresenter.swift in Sources */,

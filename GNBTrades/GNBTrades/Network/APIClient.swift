@@ -15,6 +15,7 @@ class APIClient {
         
         var request = URLRequest(url: url)
         request.httpMethod = httpMethod.rawValue
+        request.allHTTPHeaderFields = ["Accept": "application/json"]
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let responseData = data, error == nil else {

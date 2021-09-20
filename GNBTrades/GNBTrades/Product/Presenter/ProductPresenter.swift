@@ -19,7 +19,6 @@ class ProductPresenter {
     }
     
     private func getRates() {
-        view?.startActivityIndicator()
         service.getRates { (result: Result<[Rate], Error>) in
             switch result {
             case .success(let rates):
@@ -43,24 +42,26 @@ class ProductPresenter {
                 count += 1
                 continue
             }
-            let result = safeRates.filter { $0.from == transaction.currency && $0.to == currency }
-            if let resultRate = result.first {
+            let result = safeRates.first(where: { $0.from == transaction.currency && $0.to == currency })
+            if let resultRate = result {
                 sum += transaction.amount.floatValue * resultRate.rate.floatValue
                 count += 1
+                continue
             } else {
                 for rate in safeRates {
-                    let result = safeRates.filter { $0.from == rate.to && $0.to == currency }
-                    guard let resultRate = result.first, rate.from == transaction.currency else { continue }
+                    let result = safeRates.first(where: { $0.from == rate.to && $0.to == currency })
+                    guard let resultRate = result, rate.from == transaction.currency else { continue }
                     sum += (transaction.amount.floatValue * resultRate.rate.floatValue) * rate.rate.floatValue
                     rates?.append(Rate(from: transaction.currency,
                                        to: currency,
                                        rate: String(resultRate.rate.floatValue * rate.rate.floatValue)))
                     count += 1
+                    break
                 }
             }
         }
-        print(" SUM: \(sum) \n TRANSACTIONS COUNT: \(transactions.count) \n SUM COUNT \(count)")
-        view?.stopActivityIndicator()
+        
+        print(" SUM: \(sum) \n TRANSACTIONS COUNT: \(transactions.count) \n SUM COUNT: \(count)")
         view?.configureSumWith(total: String(sum), currency: currency)
     }
 }
@@ -71,11 +72,5 @@ extension ProductPresenter: ProductPresenterProtocol {
         guard let sku = transactions.first?.sku else { return }
         view?.configureNavBar(title: "Product \(sku)")
         view?.setData(data: self.transactions)
-    }
-}
-
-extension String {
-    var floatValue: Float {
-        return (self as NSString).floatValue
     }
 }
