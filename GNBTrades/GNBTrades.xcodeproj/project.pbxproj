@@ -12,7 +12,6 @@
 		609770B926F4F77E00EF3611 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609770B826F4F77E00EF3611 /* ViewController.swift */; };
 		609770BE26F4F78300EF3611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 609770BD26F4F78300EF3611 /* Assets.xcassets */; };
 		609770C126F4F78300EF3611 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609770BF26F4F78300EF3611 /* LaunchScreen.storyboard */; };
-		609770CC26F4F78300EF3611 /* GNBTradesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609770CB26F4F78300EF3611 /* GNBTradesTests.swift */; };
 		609770D726F4F78300EF3611 /* GNBTradesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609770D626F4F78300EF3611 /* GNBTradesUITests.swift */; };
 		609770F226F5E5B000EF3611 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609770F126F5E5B000EF3611 /* NavigationController.swift */; };
 		609770F826F5E79900EF3611 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609770F726F5E79900EF3611 /* APIClient.swift */; };
@@ -41,6 +40,14 @@
 		609771BE26F8FDF700EF3611 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771BC26F8FDF700EF3611 /* TransactionTableViewCell.swift */; };
 		609771BF26F8FDF700EF3611 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 609771BD26F8FDF700EF3611 /* TransactionTableViewCell.xib */; };
 		609771C626F9220500EF3611 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771C526F9220500EF3611 /* String+extension.swift */; };
+		609771CC26FA2ECF00EF3611 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771CB26FA2ECF00EF3611 /* Double+extension.swift */; };
+		609771D226FA36EF00EF3611 /* ProductsListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771D126FA36EF00EF3611 /* ProductsListPresenterTests.swift */; };
+		609771DA26FA374C00EF3611 /* ProductsListViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771D926FA374C00EF3611 /* ProductsListViewControllerMock.swift */; };
+		609771DF26FA37B100EF3611 /* ProductsListServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771DE26FA37B100EF3611 /* ProductsListServiceMock.swift */; };
+		609771F026FA3FC000EF3611 /* ProductPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771EF26FA3FC000EF3611 /* ProductPresenterTests.swift */; };
+		609771F526FA3FE900EF3611 /* ProductViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771F426FA3FE900EF3611 /* ProductViewControllerMock.swift */; };
+		609771FA26FA41C300EF3611 /* ProductServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771F926FA41C300EF3611 /* ProductServiceMock.swift */; };
+		6097720426FA429300EF3611 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609771E926FA3DFF00EF3611 /* Mock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +76,6 @@
 		609770C026F4F78300EF3611 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		609770C226F4F78300EF3611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		609770C726F4F78300EF3611 /* GNBTradesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GNBTradesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		609770CB26F4F78300EF3611 /* GNBTradesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNBTradesTests.swift; sourceTree = "<group>"; };
 		609770CD26F4F78300EF3611 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		609770D226F4F78300EF3611 /* GNBTradesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GNBTradesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		609770D626F4F78300EF3611 /* GNBTradesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNBTradesUITests.swift; sourceTree = "<group>"; };
@@ -101,6 +107,14 @@
 		609771BC26F8FDF700EF3611 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		609771BD26F8FDF700EF3611 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		609771C526F9220500EF3611 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
+		609771CB26FA2ECF00EF3611 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
+		609771D126FA36EF00EF3611 /* ProductsListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListPresenterTests.swift; sourceTree = "<group>"; };
+		609771D926FA374C00EF3611 /* ProductsListViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewControllerMock.swift; sourceTree = "<group>"; };
+		609771DE26FA37B100EF3611 /* ProductsListServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListServiceMock.swift; sourceTree = "<group>"; };
+		609771E926FA3DFF00EF3611 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		609771EF26FA3FC000EF3611 /* ProductPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPresenterTests.swift; sourceTree = "<group>"; };
+		609771F426FA3FE900EF3611 /* ProductViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewControllerMock.swift; sourceTree = "<group>"; };
+		609771F926FA41C300EF3611 /* ProductServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +184,9 @@
 		609770CA26F4F78300EF3611 /* GNBTradesTests */ = {
 			isa = PBXGroup;
 			children = (
-				609770CB26F4F78300EF3611 /* GNBTradesTests.swift */,
+				609771E926FA3DFF00EF3611 /* Mock.swift */,
+				609771EE26FA3F9C00EF3611 /* ProductTests */,
+				609771D026FA36B300EF3611 /* ProductListTests */,
 				609770CD26F4F78300EF3611 /* Info.plist */,
 			);
 			path = GNBTradesTests;
@@ -282,6 +298,7 @@
 			children = (
 				609771B426F8FC2D00EF3611 /* UIViewController+extension.swift */,
 				609771C526F9220500EF3611 /* String+extension.swift */,
+				609771CB26FA2ECF00EF3611 /* Double+extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -292,6 +309,26 @@
 				609771AE26F8FBC000EF3611 /* ActivityIndicatorScreen.swift */,
 			);
 			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		609771D026FA36B300EF3611 /* ProductListTests */ = {
+			isa = PBXGroup;
+			children = (
+				609771D126FA36EF00EF3611 /* ProductsListPresenterTests.swift */,
+				609771D926FA374C00EF3611 /* ProductsListViewControllerMock.swift */,
+				609771DE26FA37B100EF3611 /* ProductsListServiceMock.swift */,
+			);
+			path = ProductListTests;
+			sourceTree = "<group>";
+		};
+		609771EE26FA3F9C00EF3611 /* ProductTests */ = {
+			isa = PBXGroup;
+			children = (
+				609771EF26FA3FC000EF3611 /* ProductPresenterTests.swift */,
+				609771F426FA3FE900EF3611 /* ProductViewControllerMock.swift */,
+				609771F926FA41C300EF3611 /* ProductServiceMock.swift */,
+			);
+			path = ProductTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +467,7 @@
 				6097714E26F5EF1100EF3611 /* ProductViewController.swift in Sources */,
 				6097711326F5EB3100EF3611 /* TransactionModel.swift in Sources */,
 				6097710E26F5EAEB00EF3611 /* ProductsListViewControllerProtocol.swift in Sources */,
+				6097720426FA429300EF3611 /* Mock.swift in Sources */,
 				6097715926F5EF2F00EF3611 /* ProductPresenterProtocol.swift in Sources */,
 				609770B926F4F77E00EF3611 /* ViewController.swift in Sources */,
 				6097716E26F5F04B00EF3611 /* ProductsListServiceProtocol.swift in Sources */,
@@ -445,6 +483,7 @@
 				6097715426F5EF2000EF3611 /* ProductPresenter.swift in Sources */,
 				609770B726F4F77E00EF3611 /* SceneDelegate.swift in Sources */,
 				609771BE26F8FDF700EF3611 /* TransactionTableViewCell.swift in Sources */,
+				609771CC26FA2ECF00EF3611 /* Double+extension.swift in Sources */,
 				6097710926F5EAAC00EF3611 /* ProductsListPresenterProtocol.swift in Sources */,
 				6097711D26F5EC2900EF3611 /* ProductListBuilder.swift in Sources */,
 				6097717326F5F08A00EF3611 /* ProductServiceProtocol.swift in Sources */,
@@ -460,7 +499,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				609770CC26F4F78300EF3611 /* GNBTradesTests.swift in Sources */,
+				609771D226FA36EF00EF3611 /* ProductsListPresenterTests.swift in Sources */,
+				609771DA26FA374C00EF3611 /* ProductsListViewControllerMock.swift in Sources */,
+				609771F526FA3FE900EF3611 /* ProductViewControllerMock.swift in Sources */,
+				609771F026FA3FC000EF3611 /* ProductPresenterTests.swift in Sources */,
+				609771DF26FA37B100EF3611 /* ProductsListServiceMock.swift in Sources */,
+				609771FA26FA41C300EF3611 /* ProductServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

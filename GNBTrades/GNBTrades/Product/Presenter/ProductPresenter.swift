@@ -12,6 +12,7 @@ class ProductPresenter {
     var service: ProductServiceProtocol
     var transactions: [Transaction]
     var rates: [Rate]?
+    var currency = "EUR"
     
     init(service: ProductServiceProtocol, transactions: [Transaction]) {
         self.service = service
@@ -19,50 +20,44 @@ class ProductPresenter {
     }
     
     private func getRates() {
-        service.getRates { (result: Result<[Rate], Error>) in
+        service.getRates { [weak self] (result: Result<[Rate], Error>) in
             switch result {
             case .success(let rates):
-                self.rates = rates
-                self.sumTransactionsWith(currency: "EUR")
+                self?.rates = rates
+                if let transactionsSum = self?.sumTransactionsWith(currency: self?.currency ?? "") {
+                    self?.view?.configureSumWith(total: transactionsSum, currency: self?.currency ?? "")
+                }
             case .failure(let error):
-                self.view?.stopActivityIndicator()
-                print(error)
+                self?.view?.showMessage(title: "Error", message: error.localizedDescription)
             }
         }
     }
     
-    private func sumTransactionsWith(currency: String) {
-        var sum: Float = 0.0
-        var count = 0
+    func sumTransactionsWith(currency: String) -> String {
+        var sum: Double = 0.0
         
         for transaction in transactions {
-            guard let safeRates = rates else { break }
             if transaction.currency == currency {
-                sum += transaction.amount.floatValue
-                count += 1
+                sum += transaction.amount.doubleValue.bankersRounding
                 continue
-            }
-            let result = safeRates.first(where: { $0.from == transaction.currency && $0.to == currency })
-            if let resultRate = result {
-                sum += transaction.amount.floatValue * resultRate.rate.floatValue
-                count += 1
+            } else if let safeRates = rates,
+                      let resultRate = safeRates.first(where: { $0.from == transaction.currency && $0.to == currency }) {
+                sum += (transaction.amount.doubleValue * resultRate.rate.doubleValue).bankersRounding
                 continue
-            } else {
+            } else if let safeRates = rates {
                 for rate in safeRates {
                     let result = safeRates.first(where: { $0.from == rate.to && $0.to == currency })
                     guard let resultRate = result, rate.from == transaction.currency else { continue }
-                    sum += (transaction.amount.floatValue * resultRate.rate.floatValue) * rate.rate.floatValue
+                    sum += ((transaction.amount.doubleValue * resultRate.rate.doubleValue) * rate.rate.doubleValue).bankersRounding
                     rates?.append(Rate(from: transaction.currency,
                                        to: currency,
-                                       rate: String(resultRate.rate.floatValue * rate.rate.floatValue)))
-                    count += 1
+                                       rate: String(resultRate.rate.doubleValue * rate.rate.doubleValue)))
                     break
                 }
             }
         }
-        
-        print(" SUM: \(sum) \n TRANSACTIONS COUNT: \(transactions.count) \n SUM COUNT: \(count)")
-        view?.configureSumWith(total: String(sum), currency: currency)
+
+        return String(sum.bankersRounding)
     }
 }
 

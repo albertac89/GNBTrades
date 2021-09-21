@@ -9,6 +9,7 @@ import Foundation
 
 protocol ProductsListViewControllerProtocol: class {
     func setData(products: [String])
+    func showMessage(title: String, message: String)
     func startActivityIndicator()
     func stopActivityIndicator()
 }

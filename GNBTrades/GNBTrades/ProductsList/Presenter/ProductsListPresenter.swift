@@ -10,30 +10,27 @@ import Foundation
 class ProductsListPresenter {
     weak var view: ProductsListViewControllerProtocol?
     var service: ProductsListServiceProtocol
-    var transactions: [Transaction]?
+    private var transactions: [Transaction]?
     
     init(service: ProductsListServiceProtocol) {
         self.service = service
     }
-}
-
-extension ProductsListPresenter: ProductsListPresenterProtocol {
-    func viewDidLoad() {
-        loadProducts()
-    }
     
     private func loadProducts() {
         view?.startActivityIndicator()
-        service.getTransactionsList { (result: Result<[Transaction], Error>) in
+        service.getTransactionsList { [weak self] (result: Result<[Transaction], Error>) in
             switch result {
             case .success(let transactions):
-                self.transactions = transactions
-                let products = self.grupTransactionsInProducts(transactions: transactions)
-                self.view?.setData(products: products)
-                self.view?.stopActivityIndicator()
+                self?.view?.stopActivityIndicator()
+                self?.transactions = transactions
+                guard let products = self?.grupTransactionsInProducts(transactions: transactions) else {
+                    self?.view?.showMessage(title: "Error", message: "Something went wrong gruping the transactions into products")
+                    return
+                }
+                self?.view?.setData(products: products)
             case .failure(let error):
-                self.view?.stopActivityIndicator()
-                print(error)
+                self?.view?.stopActivityIndicator()
+                self?.view?.showMessage(title: "Error", message: error.localizedDescription)
             }
         }
     }
@@ -46,6 +43,12 @@ extension ProductsListPresenter: ProductsListPresenterProtocol {
             }
         }
         return products
+    }
+}
+
+extension ProductsListPresenter: ProductsListPresenterProtocol {
+    func viewDidLoad() {
+        loadProducts()
     }
     
     func getTransactionsForProductWith(sku: String) -> [Transaction]? {

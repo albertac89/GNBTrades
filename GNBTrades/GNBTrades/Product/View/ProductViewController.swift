@@ -66,6 +66,14 @@ extension ProductViewController: ProductViewControllerProtocol {
             self.totalAmountLabel.text = "\(total) \(currency)"
         }
     }
+    
+    func showMessage(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension ProductViewController: UITableViewDelegate, UITableViewDataSource {

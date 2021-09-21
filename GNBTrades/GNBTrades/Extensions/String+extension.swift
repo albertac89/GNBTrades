@@ -8,7 +8,7 @@
 import Foundation
 
 extension String {
-    var floatValue: Float {
-        return (self as NSString).floatValue
+    var doubleValue: Double {
+        return (self as NSString).doubleValue
     }
 }
